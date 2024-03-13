@@ -1,0 +1,176 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "DATA KELOMPOK",
+      "version": "1.0",
+      "description": "API UNTUK MENGELOLA DATA KELOMPOK",
+      "contact": {
+        "name" : "Kelompok 10",
+        "url": "https://github.com/22091397031EnriqueRendhiJulianM/Pemrograman-API"
+      }
+    },
+    "servers": [
+        {
+          "url": "http://localhost:8000/v1"
+        }
+      ],
+    "paths": {
+      "/kelompok": {
+        "get": {
+          "summary": "Menampilkan Data Kelompok",
+          "responses": {
+            "200": {
+              "description": "Successful",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "data": [
+                      {
+                        "NIM": "4",
+                        "Nama": "ANNA BERTTRIA NOVEM BUDIA",
+                        "Kelas": "A"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Menambahkan Data Kelompok",
+          "requestBody": {
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "NIM": {
+                      "type": "integer"
+                    },
+                    "Nama": {
+                      "type": "string"
+                    },
+                    "Kelas": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["NIM", "Nama", "Kelas"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "OK",
+                    "message": "Update data kelompok berhasil."
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "Error",
+                    "message": "Update data kelompok gagal."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Merubah Data Kelompok",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "NIM": {
+                      "type": "integer"
+                    },
+                    "Nama": {
+                      "type": "string"
+                    },
+                    "Kelas": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["NIM", "Nama", "Kelas"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "OK",
+                    "message": "Data kelompok berhasil diperbarui."
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "Error",
+                    "message": "Data kelompok gagal diperbarui."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Menghapus Data Kelompok",
+          "parameters": [
+            {
+              "name": "NIM",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "OK",
+                    "message": "Data berhasil dihapus."
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "Error",
+                    "message": "Gagal menghapus data."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
